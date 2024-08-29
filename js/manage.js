@@ -61,7 +61,7 @@ addBtn.addEventListener ('click', (e) => {
         const data = await response.json();
         
         await getData();
-        alert("Prodotto aggiunto con successo!")
+        Swal.fire("Product successfully added!");
         target.innerHTML = "";
         form.reset();
         return data;
@@ -121,20 +121,33 @@ const getData = async () => {
 
         /* REMOVE PRODUCT FROM DATABASE */
         removeBtn.addEventListener ('click', async () => {
-            const confirmed = confirm('Sei sicuro di voler eliminare?')
-            if(confirmed) {
-                const response = await fetch(`${ENDPOINT}/${_id}`, {
-                    method: `DELETE`,
-                    headers: {
-                        "Authorization": `${TOKEN}`,
-                        "Content-Type": `application/json`,
-                    },
-                });
-                if (response.ok) {
-                    alert("Prodotto eliminato con successo!")
-                    tr.remove();
+            Swal.fire({
+                    title: "Are you sure you want to delete?",
+                    text: "You won't be able to revert this!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Yes, delete it!"
+                }).then( async (result) => {
+                if (result.isConfirmed) {
+                    const response = await fetch(`${ENDPOINT}/${_id}`, {
+                        method: `DELETE`,
+                        headers: {
+                            "Authorization": `${TOKEN}`,
+                            "Content-Type": `application/json`,
+                        },
+                    });
+                    if (response.ok) {
+                        Swal.fire({
+                            title: "Deleted!",
+                            text: "Your product has been deleted.",
+                            icon: "success"
+                        });
+                        tr.remove();
+                    }
                 }
-            }
+            });
         })
 
         /* EDIT PRODUCT */
@@ -215,7 +228,7 @@ const getData = async () => {
                 });
                 if (response.ok) {
                     await getData();
-                    alert("Prodotto modificato con successo!");
+                    Swal.fire("Product successfully modified!");
                     target.innerHTML = "";
                 }
             })
