@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+/* @import url('https://db.onlinewebfonts.com/c/4313d7354c9b8afe25e1a98773ade48d?family=MM+Headline+Pro+WebTT+Regular+Regular'); */
+
+/* font-family: "Source Sans 3", sans-serif; */
+/* font-family: "MM Headline Pro WebTT Regular Regular", sans-serif; */
+
+/* COLOR */
+.bg-light-grey {background-color: rgb(242, 242, 242)!important;}
+.bg-mid-grey {background-color: rgb(222, 222, 222)!important;}
+.bg-grey-custom {background-color: #F5F5F7;}
+.bg-grey {background-color: rgb(202, 202, 202)!important;}
+.black {color: #222;}
+.grey {color: #aaa;}
+
+
+/* GENERAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* FONT */
+body {
+    font-family: "Source Sans 3", sans-serif;
+    /* position: relative;
+    height: 100%; */
+}
+
+h1 {
+    font-size: 4rem;
+    font-weight: 500;
+}
+
+/* ANIMATION */
+.slide-left {
+    transform: translateX(300px);
+    transition: 0.8s ease-in-out;
+}
+
+.slide-right {
+    transform: translateX(0);
+    transition: 0.8s ease-in-out;
+}
+
+/* NAVBAR */
+.navbar {
+    box-shadow: 10px 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+}
+
+.navbar a {
+    text-decoration: none;
+    font-size: 0.8rem;
+}
+
+/* CART */
+.cart {
+    width: 300px;
+    position: fixed;
+    height: 100vh!important;
+    top: 50px;
+    right: 0;
+    z-index: 1;
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.cart-price {
+    font-size: 0.9rem;
+    font-style: italic;
+    font-weight: 900;
+}
+
+.cart-price-container {
+    font-size: 0.9rem;
+    font-style: italic;
+    font-weight: 600;
+}
+
+/* MAIN */
+.hero-video {
+    height: 500px;
+    overflow: hidden;
+}
+
+.hero-img {
+    height: 350px;
+    background-image: url("../assets/hero-img.jpg");
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: contain;
+}
+
+/* PRODUCT CARD */
+.product-card {
+    background-color: white;
+    text-align: center;
+}
+.product-card:hover {
+    background-color: rgb(250, 250, 250);
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    transition: 0.3s ease-in-out;
+}
+
+.product-card .title {
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.product-card .description {
+    font-size: 0.8rem;
+    /* text-transform: uppercase; */
+    font-weight: 300;
+    display: -webkit-box;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.2em;
+    max-height: 2.4em;
+}
+
+.product-card .brand {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.product-card .price-span {
+    font-size: 0.9rem;
+    font-style: italic;
+    font-weight: 600;
+}
+
+.product-card .price {
+    font-size: 0.9rem;
+    font-style: italic;
+    font-weight: 900;
+}
+
+/* PRODUCT CARD DETAIL */
+.product-card-detail .title {
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.product-card-detail .description {
+    font-size: 1.2rem;
+    /* text-transform: uppercase; */
+    font-weight: 300;
+}
+
+#product-information {
+    font-size: 0.8rem;
+    font-weight: 300;
+}
+
+.product-card-detail .brand {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.product-card-detail .price-span {
+    font-size: 1.5rem;
+    font-style: italic;
+    font-weight: 600;
+}
+
+.product-card-detail .price {
+    font-size: 1.5rem;
+    font-style: italic;
+    font-weight: 900;
+}
+
+/* CART CARD */
+.cart-card {
+    text-decoration: none;
+    color: #222;
+}
+.cart-card .title a {
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.cart-card .price-span {
+    font-size: 0.9rem;
+    font-style: italic;
+    font-weight: 600;
+}
+
+.cart-card .price {
+    font-size: 0.9rem;
+    font-style: italic;
+    font-weight: 900;
+}

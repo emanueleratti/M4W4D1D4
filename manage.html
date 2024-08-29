@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+
+    <style>
+        .link {
+            pointer-events: none;
+        }
+        .product-card .image {
+            width: 210px;
+        }
+    </style>
+</head>
+
+<body class="bg-light-grey">
+
+    <!-- NAVBAR -->
+    <nav class="navbar bg-white container-fluid px-5 py-1 d-flex gap-5">
+        <a href="#"><img src="./assets/apple-logo.svg" width="15" alt=""></a>
+
+        <div class="navbar-menu d-flex gap-3 flex-grow-1">
+            <a class="navbar-link black" href="index.html">Home</a>
+            <a class="navbar-link black" href="manage.html">Manage</a>
+        </div>
+    </nav>
+
+    <!-- MAIN -->
+    <main class="container-fluid bg-light-grey">
+        <div class="row g-3 p-5">
+
+            <!-- CREATE SECTION -->
+            <div class="col-4">
+                <div id="create-product" class="bg-white p-3 rounded-3">
+                    <h3>Insert a product</h3>
+                    <form class="d-flex flex-column gap-2">
+                        <input type="text" id="name" class="form-control" placeholder="Product Name" required>
+                        <input type="text" id="description" class="form-control" placeholder="Description" required>
+                        <input type="text" id="brand" class="form-control" placeholder="Brand" required>
+                        <input type="text" id="img-url" class="form-control" placeholder="Img URL" required>
+                        <input type="number" id="price" class="form-control" placeholder="Price" required>
+                        <div class="d-flex align-items-center gap-2">
+                            <button id="insert-btn" class="btn btn-sm btn-primary">Preview</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- PREVIEW SECTION -->
+            <div class="col-4">
+                <div class="bg-mid-grey p-3 align-items-stretch rounded-3 h-100">
+                    <h3>Preview</h3>
+                    <div id="preview-product">
+                        <!-- CLONE TARGET -->
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                        <button id="add-btn" class="btn btn-sm btn-success">Add</button>
+                        <button id="delete-btn" class="btn btn-sm btn-danger">Delete</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EDIT SECTION -->
+            <div class="col-4">
+                <div class="bg-mid-grey p-3 rounded-3 h-100">
+                    <h3>Edit</h3>
+                    <div id="edit-product">
+                        <!-- CLONE TARGET -->
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                        <button id="save-btn" class="btn btn-sm btn-success">Save</button>
+                        <button id="reset-btn" class="btn btn-sm btn-danger">Reset</button>
+                        <button id="cancel-btn" class="btn btn-sm btn-secondary">Cancel</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCT LIST -->
+            <div class="col-12">
+                <div class="bg-white p-3 rounded-3">
+                    <h3>Product List</h3>
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Brand</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Image URL</th>
+                            <th scope="col">Edit</th>
+                            <th scope="col">Remove</th>
+                          </tr>
+                        </thead>
+                        <tbody id="list-product">
+                            <!-- LIST TARGET -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- TEMPLATE PREVIEW CARD -->
+    <template>
+        <div class="col-12 mb-3 rounded-2 overflow-hidden">
+            <div class="product-card d-flex flex-row p-3 align-items-center">
+               <img class="image img-fluid pe-5" src="link">
+                <div class="d-flex flex-column gap-2">
+                    <div class="title text-start">Nome</div>
+                    <div class="d-flex flex-column">
+                        <div class="brand text-start">Brand</div>
+                        <div class="description text-start">Descrizione</div>
+                    </div>
+                    <div class="price-span d-flex align-items-center">Price <span class="price ms-1">0</span>€</div>
+                    <div class="mt-1 d-flex align-items-stretch gap-2">
+                        <a class="link btn btn-primary btn-sm flex-grow-1 d-flex align-items-center justify-content-center gap-2"><ion-icon name="eye-outline"></ion-icon> View</a>
+                        <a class="btn btn-primary btn-sm d-flex align-items-center justify-content-center"><ion-icon name="heart-outline"></ion-icon></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+    <!--  -->
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script type="module" src="./js/manage.js"></script>
+</body>
+</html>
