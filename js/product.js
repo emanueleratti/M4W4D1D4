@@ -1,4 +1,4 @@
-import { ENDPOINT , TOKEN , createCard , cartSlider , addToCart , updateCartTotal, clearCart } from "./modules/script.js"
+import { ENDPOINT , TOKEN , createCard , cartSlider , addToCart , updateCartTotal, clearCart , addToFavourite } from "./modules/script.js"
 
 cartSlider();
 clearCart();
@@ -41,6 +41,15 @@ const getData = async () => {
     addToCartBtn.addEventListener("click", () => {
         addToCart(data);
         updateCartTotal();
+    });
+
+    const addToFavouriteButtons = document.querySelectorAll(".add-to-fav-btn")
+
+    addToFavouriteButtons.forEach((button, id) => {
+        const favouriteIcon = button.querySelector(".fav-icon"); 
+        button.addEventListener("click", () => {
+            addToFavourite(data[id], favouriteIcon);
+        });
     });
 }
 getData();

@@ -20,7 +20,10 @@
             <a class="navbar-link black" href="manage.html">Manage</a>
         </div>
 
-        <a id="cart-button"><img src="./assets/cart.svg" width="15" alt=""></a>
+        <div class="d-flex align-items-center gap-4">
+            <a id="fav-button"><img src="./assets/fav.svg" width="16" alt=""><span id="fav-counter"></span></a>
+            <a id="cart-button"><img src="./assets/cart.svg" width="15" alt=""></a>
+        </div>
     </nav>
 
      <!-- CART -->
@@ -88,7 +91,7 @@
                     <div class="mt-1 d-flex align-items-stretch gap-2">
                         <a class="link btn rounded-5 btn-light btn-sm flex-grow-1 d-flex align-items-center justify-content-center gap-2" href="link"><ion-icon name="eye-outline"></ion-icon> View</a>
                         <a class="add-to-cart-btn rounded-5 btn btn-light btn-sm d-flex align-items-center justify-content-center"><ion-icon name="bag-add-outline"></ion-icon></a>
-                        <a class="btn btn-light rounded-5 btn-sm d-flex align-items-center justify-content-center"><ion-icon name="heart-outline"></ion-icon></a>
+                        <a class="add-to-fav-btn btn btn-light rounded-5 btn-sm d-flex align-items-center justify-content-center"><ion-icon class="fav-icon" name="bookmark-outline"></ion-icon></a>
                     </div>
                 </div>
             </div>

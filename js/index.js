@@ -1,7 +1,11 @@
-import { ENDPOINT , TOKEN , createCard , cartSlider , addToCart , updateCartTotal, clearCart } from "./modules/script.js"
+import { ENDPOINT , TOKEN , createCard , cartSlider , addToCart , updateCartTotal, clearCart , addToFavourite } from "./modules/script.js"
 
 cartSlider();
 clearCart();
+
+let favourite = JSON.parse(localStorage.getItem('favouriteProducts')) || [];
+const favouriteCounter = document.getElementById("fav-counter");
+favouriteCounter.textContent = favourite.length;
 
 const getData = async () => {
     const response = await fetch(`${ENDPOINT}`, {
@@ -26,6 +30,15 @@ const getData = async () => {
         button.addEventListener("click", () => {
             addToCart(data[id]);
             updateCartTotal();
+        });
+    });
+
+    const addToFavouriteButtons = document.querySelectorAll(".add-to-fav-btn")
+
+    addToFavouriteButtons.forEach((button, id) => {
+        const favouriteIcon = button.querySelector(".fav-icon"); 
+        button.addEventListener("click", () => {
+            addToFavourite(data[id], favouriteIcon);
         });
     });
 }

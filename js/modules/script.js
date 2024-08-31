@@ -1,8 +1,12 @@
 export const ENDPOINT = "https://striveschool-api.herokuapp.com/api/product/";
 export const TOKEN = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmNjZmMyN2ZlN2VmODAwMTUwNjc2MzMiLCJpYXQiOjE3MjQ3MDk5MjgsImV4cCI6MTcyNTkxOTUyOH0.SHsJcytvHTGPJ6RKRlxhNOvXwy1gk-L3cvGt6KsFq10";
 
-let cart = []
+let cart = [];
 let totalCart = 0
+
+let favourite = JSON.parse(localStorage.getItem('favouriteProducts')) || [];
+const favouriteCounter = document.getElementById("fav-counter");
+favouriteCounter.textContent = favourite.length;
 
 /* CREATE CARD FUNCTION */
 export function createCard (name, description, brand, imageUrl, price, _id, target) {
@@ -96,4 +100,25 @@ export function clearCart () {
         target.innerHTML = "";
         totalCartContainer.textContent = 0;
     });
+}
+
+export function saveFavToLocalStorage () {
+    localStorage.setItem('favouriteProducts', JSON.stringify(favourite));
+};
+
+export function addToFavourite (product, favouriteIcon) {
+    let favouriteChecked = favourite.includes(product._id);
+    favouriteChecked = !favouriteChecked;
+
+    favouriteIcon.setAttribute("name", favouriteChecked ? "bookmark" : "bookmark-outline");
+
+    if (favouriteChecked) {
+        favourite.push(product._id)
+    } else {
+        favourite = favourite.filter(id => id !== product._id);
+    }
+
+    favouriteCounter.textContent = favourite.length;
+
+    saveFavToLocalStorage();
 }
